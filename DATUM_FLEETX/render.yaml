@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: datum-fleetx-backend
+    runtime: docker
+    dockerfilePath: backend/Dockerfile
+    region: oregon
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: JWT_SECRET
+        value: datum-fleetx-secret-key-2026-production-very-secure
+      - key: CORS_ORIGINS
+        value: https://your-frontend.vercel.app
+    autoDeploy: true
